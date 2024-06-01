@@ -1,4 +1,7 @@
 #!/usr/bin/make -f
 
+export DH_GOLANG_EXCLUDES := cmd example tracing/opencensus
+export DH_GOLANG_INSTALL_EXTRA := $(shell find . -name go.mod)
+
 %:
-	dh $@
+	dh $@ --buildsystem=golang
